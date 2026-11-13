@@ -1,0 +1,26 @@
+{
+  "comment": "Extraktionskonfiguration. excludeColumns werden nicht gehasht/gespeichert (Audit-Spalten, siehe Harvester). Dynamischer Harvest der QBM-Konfigurationstabellen nach Harvester/Get-QBMTables.",
+  "excludeColumns": ["XDateInserted", "XUserInserted", "XDateUpdated", "XUserUpdated", "XTouched"],
+  "dynamic": {
+    "enabled": true,
+    "categoryPrefix": "qbm.",
+    "where": "UID_DialogTable LIKE 'QBM-T-%' AND TableType='T' AND (UsageType = 'CONFIGURATION' OR TableName IN ('QBMFileHasDeployTarget','QBMGroupHasLimitedSQL','QBMLimitedSQL','QBMLock','QBMModuleDependCollection','QBMPwdPolicy','QBMServerHasDeployTarget'))",
+    "excludeTables": [
+      "DialogCalendar", "DialogCountry", "DialogCountryHasCulture", "DialogCountryHasTimeZone", "DialogCountryHoliday",
+      "DialogParameter", "DialogParameterSet", "DialogState", "DialogStateHasCulture", "DialogStateHasTimeZone", "DialogStateHoliday",
+      "DialogTimeZone", "QBMCulture", "DialogMultiLanguage",
+      "DialogColumnGroupRight","QBMFileRevision","DialogProcess","DialogProcessChain","DialogProcessStep"
+    ]
+  },
+  "extractors": [
+],
+  "extractorsBACKUP": [
+    { "name": "Schema: Tabellen", "category": "schema.table", "kind": "table", "table": "DialogTable", "nameColumn": "uri", "loadType": "Default" },
+    { "name": "Schema: Spalten", "category": "schema.column", "kind": "table", "table": "DialogColumn", "nameColumn": "uri", "loadType": "Default" },
+    { "name": "Skripte", "category": "script", "kind": "table", "table": "DialogScript", "nameColumn": "uri", "contentColumn": "ScriptCode" },
+    { "name": "Prozesse", "category": "process", "kind": "table", "table": "JobChain", "nameColumn": "uri" },
+    { "name": "Prozessschritte", "category": "process", "kind": "table", "table": "Job", "nameColumn": "uri" },
+    { "name": "Prozessschrittparameter", "category": "process", "kind": "table", "table": "JobRunParameter", "nameColumn": "uri" },
+    { "name": "Konfigurationsparameter", "category": "config.parameter", "kind": "table", "table": "DialogConfigParm", "nameColumn": "uri" }
+  ]
+}

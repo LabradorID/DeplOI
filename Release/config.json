@@ -1,0 +1,16 @@
+{
+  "toolVersion": "0.2.0",
+  "sqlite": {
+    "assemblyRelativePath": "bin/System.Data.SQLite.dll"
+  },
+  "rest": {
+    "pageSize": 500,
+    "timeoutSec": 60,
+    "maxRetries": 5,
+    "trustAllCertificates": false
+  },
+  "report": {
+    "maxValueDisplayChars": 1500,
+    "maxLineDiffLines": 60
+  }
+}
