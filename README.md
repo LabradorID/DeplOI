@@ -1,5 +1,7 @@
 # DeplOI Portable
 
+THIS IS AN EARLY VERSION Feedback is welcome.
+
 DeplOI Portable is a PowerShell 5.1 / SQLite based portable solution to authenticate against a One Identity REST API (Application Server), read the schema and extract system data.
 
 Each extract is stored in a separate SQLite database those databases can be automatically compared and generate a HTML report of the differences.
